@@ -4,6 +4,8 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
+    <link rel="stylesheet" href="./assets/css/style.css">
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -11,31 +13,24 @@
     <title>Million Dollar Baby</title>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 </head>
 
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Million Dollar Baby</a>
+            <a href="index.html" class="brand-logo">Million Dollar Baby</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="">Sass</a></li>
-                <li><a href="">Components</a></li>
-                <li><a href="">Javascript</a></li>
-                <li><a href="">Mobile</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
             </ul>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="">Sass</a></li>
-        <li><a href="">Components</a></li>
-        <li><a href="">Javascript</a></li>
-        <li><a href="">Mobile</a></li>
+        <li><a href="">Calculator</a></li>
     </ul>
-
-
-
 
 
     <div class="container style='padding: 10px;' #9e9e9e grey">
@@ -50,7 +45,7 @@
             <select class="browser-default teal lighten-2">
                             <option value="" disabled selected>Choose your option</option>
                             <br>
-                            <option value="1">Option 1</option>
+                            <option value="1">Fremont</option>
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                           </select>
@@ -62,7 +57,7 @@
                 <select class="browser-default teal lighten-2">
                             <option value="" disabled selected>Choose your option</option>
                             <br>
-                            <option value="1">Option 1</option>
+                            <option value="1">California</option>
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                           </select>
@@ -74,7 +69,7 @@
                     <select class="browser-default teal lighten-2">
                                     <option value="" disabled selected>Choose your option</option>
                                     <br>
-                                    <option value="1">Option 1</option>
+                                    <option value="1">Alameda</option>
                                     <option value="2">Option 2</option>
                                     <option value="3">Option 3</option>
                                   </select>
@@ -91,9 +86,7 @@
                                             <option value="2">Option 2</option>
                                             <option value="3">Option 3</option>
                                           </select>
-
                         <br>
-
                         <div class="row">
                             <div class="input-field col s6">
                                 <input value="$" id="down_payment" type="text" class="validate blue-text text-darken-2">
@@ -102,11 +95,27 @@
                             </div>
                         </div>
 
+                        <body div="bdyMap">
+                            
+                            <div id="map" style="width: 320px; height: 480px;"></div>
+                            <div class="row">
 
 
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                            <i class="material-icons right">send</i>
-                        </button>
+                            </div>
+              
+                                  
+                                <input id="address" class="input-field col s12" type="textbox" value="Fremont, California">
+                                <br>
+                                <br>
+                                <input id="btnGetAdd" type="button" class="btn waves-effect waves-light" value="Go baby, Go!">
+                      
+                        </body>
+
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvzqOxwwSoaC4BqoQL3nx86kAKE9_KJkI&callback=initMap"
+                            type="text/javascript"></script>
+                        <script src="assets/js/gmaps.js"></script>
+
+
 
                         <div class="input-field col s12">
                             <select>
@@ -117,10 +126,12 @@
                                 </select>
                             <label class="yellow-text text-darken-1"><strong>$$$ Show me the money! $$$</strong></label>
                         </div>
-
                         <br>
                         <br>
 
+
+
+                        <!-- ******************************************************* -->
 
                         <table class="responsive-table highlight">
                             <thead class="blue-text text-darken-2">
@@ -144,6 +155,43 @@
                                     <td></td>
                                 </tr>
 
+
+                                <!-- Green Box for ROI -->
+                                <div class="card-stats" class="section">
+                                    <div class="row">
+                                        <div class="col s12 m6 l3">
+                                            <div class="card">
+                                                <div class="card-content green white-text">
+                                                    <p class="card-stats-title">
+                                                        <i class="mdi-social-group-add">
+                                                    </i> ROI
+                                                    </p>
+                                                    <h4 class="card-stats-number">15%</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Purple box -->
+
+                                <div class="card-stats" class="section">
+                                    <div class="row">
+                                        <div class="col s12 m6 l3">
+                                            <div class="card">
+                                                <div class="card-content purple white-text">
+                                                    <p class="card-stats-title">
+                                                        <i class="mdi-social-group-add">
+                                                        </i> Calculate
+                                                        something else, here!
+                                                    </p>
+                                                    <h4 class="card-stats-number">15%</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </tbody>
                         </table>
 
@@ -154,6 +202,10 @@
             </div>
         </div>
     </div>
+
+
+
+
 
 
     <footer class="page-footer valign center">
@@ -177,6 +229,10 @@
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+
+
 </body>
 
 </html>
