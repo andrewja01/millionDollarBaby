@@ -182,8 +182,10 @@ $(document).ready(function() {
       } else if(numYears === 30) {
         if (downPayment.val() >= 5) {
           fhaPayment = ((fhaPrinciple * 0.0055) / 12);
+          console.log(fhaPayment);
         } else if (downPayment.val() < 5) {
           fhaPayment = ((fhaPrinciple * 0.0060) / 12);
+          console.log(fhaPayment);
         }
       }
   
