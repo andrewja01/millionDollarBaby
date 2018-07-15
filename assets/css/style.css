@@ -3,11 +3,57 @@
   }
 
 #map {
+    margin: 0 auto;    
+}
+
+input#address.input-field.col.s12 {
     margin: 0 auto;
     
 }
 
-input {
-    margin: 0 auto;
+
+button{
+    margin: 0 auto;    
     
 }
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex; justify-content: center;
+    font-size: 16px;
+    margin: 0 auto;
+
+}
+
+#address {
+    display: flex; justify-content: center;
+    
+    
+}
+
+.form-group {
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    font-size: var(--font-size-small);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.2s ease-out;
+
+}
+
+input:placeholder-shown + label {
+    opacity: 0;
+    transform: translateY(1rem);
+    
+}
+

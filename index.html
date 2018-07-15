@@ -23,7 +23,6 @@
             <a href="index.html" class="brand-logo">Million Dollar Baby</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="calculator.html">Calculator</a></li>
             </ul>
         </div>
     </nav>
@@ -38,16 +37,16 @@
             <div class="row">
                 <form class="col s12">
                     <div class="row">
-                        <div class="input-field col s12 teal lighten-2">
+                        <div class="input-field col s12 white lighten-2">
                             <input placeholder="" id="city" type="text" class="validate" style="cursor:alias" required>
                             <label for="city">City</label>
                         </div>
-                        <div class="input-field col s12 teal lighten-2">
-                            <input id="state" type="text" class="validate" style="cursor:alias" required>
+                        <div class="input-field col s12 white lighten-2">
+                            <input id="" type="text" class="validate" style="cursor:alias" required>
                             <label for="state">State</label>
                         </div>
-                        <div class="input-field col s12 teal lighten-2">
-                            <input id="state" type="text" style="cursor:alias" class="validate">
+                        <div class="input-field col s12 white lighten-2">
+                            <input id="" type="text" style="cursor:alias" class="validate">
                             <label for="state">Zip Code</label>
                         </div>
                     </div>
@@ -55,18 +54,40 @@
             </div>
 
 
-            <body div="bdyMap">
+            <!-- MAP ********************************************************************************-->
+            <div id="map" style="width: 320px; height: 480px;"></div>
+            <div class="row">
+            </div>
 
-                <div id="map" style="width: 320px; height: 480px;"></div>
+
+           <!--  <input id="address" class="input-field col s12" type="textbox" value="Fremont, California">-->
+
+      
+           <div class="input-field col s12 white lighten-2">
                 <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                            <input placeholder="" id="city" type="text" class="validate" style="cursor:alias" required>
+                            <label for="address">Location</label>
+                            </div>
+                        </form>
                 </div>
+            </div>
+            
+        
+            <br>
+
+            <button class="button" id="btnGetAdd">
+                Submit
+            </button>
 
 
-                <input id="address" class="input-field col s12" type="textbox" value="Fremont, California">
-                <br>
-                <br>
+
+        
+            <!-- Button that was working fine but could not center.
                 <input id="btnGetAdd" type="button" class="btn waves-effect waves-light" value="Go baby, Go!">
-            </body>
+            -->
+
 
             <div class="input-field col s12">
                 <select>
@@ -94,7 +115,7 @@
                     </tr>
                 </thead>
 
-                <tbody class="teal lighten-2">
+                <tbody class="white lighten-2">
                     <tr>
                         <td></td>
                         <td></td>
@@ -103,15 +124,16 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    
 
                     <!-- Green Box for ROI -->
                     <div class="card-stats" class="section">
                         <div class="row">
-                            <div class="col s12 m6 l3">
+                            <div class="col s12 m6 l3 ">
                                 <div class="card">
-                                    <div class="card-content green white-text">
-                                        <p class="card-stats-title">
-                                            <i class="mdi-social-group-add">
+                                    <div class="card-content green white-text ">
+                                        <p class="card-stats-title ">
+                                            <i class="mdi-social-group-add ">
                                                     </i> ROI
                                         </p>
                                         <h4 class="card-stats-number">15%</h4>
