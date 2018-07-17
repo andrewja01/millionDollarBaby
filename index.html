@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-
     <link rel="stylesheet" href="./assets/css/style.css">
-
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -14,174 +11,134 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
 </head>
-
 <body>
     <nav>
         <div class="nav-wrapper">
             <a href="index.html" class="brand-logo">Million Dollar Baby</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
             <ul class="right hide-on-med-and-down">
             </ul>
         </div>
     </nav>
-
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="">Calculator</a></li>
+        <li>
+            <a href="">Calculator</a>
+        </li>
     </ul>
-
-
     <div class="container style='padding: 10px;' #9e9e9e grey">
         <div class="input-field col s12">
             <div class="row">
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s12 white lighten-2">
-                            <input placeholder="" id="city" type="text" class="validate" style="cursor:alias" required>
-                            <label for="city">City</label>
+                            <input placeholder="City" id="city" type="text" class="validate" style="cursor:alias">
                         </div>
                         <div class="input-field col s12 white lighten-2">
-                            <input id="state" type="text" class="validate" style="cursor:alias" required>
-                            <label for="state">State</label>
+                            <input id="state" disabled value="CA" id="disabled" type="text" class="validate" style="cursor:alias">
+                            <!-- <label for="disabled">CA</label> -->
                         </div>
                         <div class="input-field col s12 white lighten-2">
-                            <input id="state" type="text" style="cursor:alias" class="validate">
-                            <label for="state">Zip Code</label>
+                            <input id="zip" type="text" style="cursor:alias" class="validate" placeholder="Zipcode">
+                        </div>
+                        <div class="input-field col s12 white lighten-2">
+                            <input id="monthlyRent" type="text" style="cursor:alias" class="validate" placeholder="Monthly Rent">
                         </div>
                     </div>
-                </form>
+                </form> 
             </div>
-
-
-            <!-- MAP ********************************************************************************-->
-            <div id="map" style="width: 320px; height: 480px;"></div>
-            <div class="row">
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Invalid Input</h4>
+                    <p>City, Zip, and Rent must be input</p>
+                </div>
             </div>
-
-
-            <input id="address" class="input-field col s12" type="textbox" value="Fremont, California">
-
-        
-            
-            <br>
-            <br>
-
-            <button class="button" id="btnGetAdd">
-                Submit
-            </button>
-
-
-
-        
-            <!-- Button that was working fine but could not center.
+                <br>
+                <br>
+                <button class="button" id="btnGetAdd">
+                    Submit
+                </button>
+                <!-- Button that was working fine but could not center.
                 <input id="btnGetAdd" type="button" class="btn waves-effect waves-light" value="Go baby, Go!">
             -->
-
-
-            <div class="input-field col s12">
-                <select>
-                                  <option value="" disabled selected>Choose your option</option>
-                                  <option value="1">Option 1</option>
-                                  <option value="2">Option 2</option>
-                                  <option value="3">Option 3</option>
-                                </select>
-                <label class="yellow-text text-darken-1"><strong>$$$ Show me the money! $$$</strong></label>
-            </div>
-            <br>
-            <br>
-
-            <!-- ******************************************************* -->
-
-            <table class="responsive-table highlight">
-                <thead class="blue-text text-darken-2">
-                    <tr>
-                        <th>List Number</th>
-                        <th>Property Address</th>
-                        <th>ROI %</th>
-                        <th>Rent $</th>
-                        <th>Taxes</th>
-                        <th>Purchase Price</th>
-                    </tr>
-                </thead>
-
-                <tbody class="white lighten-2">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    
-
-                    <!-- Green Box for ROI -->
-                    <div class="card-stats" class="section">
-                        <div class="row">
-                            <div class="col s12 m6 l3 ">
-                                <div class="card">
-                                    <div class="card-content green white-text ">
-                                        <p class="card-stats-title ">
-                                            <i class="mdi-social-group-add ">
-                                                    </i> ROI
-                                        </p>
-                                        <h4 class="card-stats-number">15%</h4>
-                                    </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- Green Box for ROI -->
+                <div class="card-stats" class="section">
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <div class="card">
+                                <div class="card-content green white-text">
+                                    <p class="card-stats-title">
+                                        <i class="mdi-social-group-add">
+                                        </i> Average ROI
+                                    </p>
+                                    <h4 class="card-stats-number" id="spnROI"></h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Purple box -->
-
-                    <div class="card-stats" class="section">
-                        <div class="row">
-                            <div class="col s12 m6 l3">
-                                <div class="card">
-                                    <div class="card-content purple white-text">
-                                        <p class="card-stats-title">
-                                            <i class="mdi-social-group-add">
-                                                        </i> Calculate something
-                                            else, here!
-                                        </p>
-                                        <h4 class="card-stats-number">15%</h4>
-                                    </div>
+                </div>
+                <!-- Purple box -->
+                <div class="card-stats" class="section">
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <div class="card">
+                                <div class="card-content purple white-text">
+                                    <p class="card-stats-title">
+                                        <i class="mdi-social-group-add">
+                                        </i> Average Purchase Price
+                                    </p>
+                                    <h4 class="card-stats-number average"></h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                </tbody>
-            </table>
-
-            <br>
-        </div>
-    </div>
-
-    </div>
-    </div>
-    </div>
-
-
-
-    <footer class="page-footer valign center">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2018 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+                <br>
+                <!-- ******************************************************* -->
+                <table class="striped responsive-table highlight">
+                    <thead class="blue-text text-darken-2">
+                        <tr>
+                            <th>List Number</th>
+                            <th>Property Address</th>
+                            <th>ROI %</th>
+                            <th>Taxes</th>
+                            <th>Purchase Price</th>
+                        </tr>
+                    </thead>
+                    <tbody class="grey">
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </footer>
-
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script src="./assets/js/app.js"></script>
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvzqOxwwSoaC4BqoQL3nx86kAKE9_KJkI&callback=initMap"
-        type="text/javascript"></script>
-    <script src="./assets/js/gmaps.js"></script>
-
+            <!-- MAP ********************************************************************************-->
+            <!-- <input id="address" class="input-field col s12" type="textbox" value=" "> -->
+            <br>
+            <div id="map" style="width: 600px; height: 480px;"></div>
+            <div class="row">
+            </div>
+            <br>
+            <footer class="page-footer valign center">
+                <div class="footer-copyright">
+                    <div class="container">
+                        © 2018 Copyright Text
+                        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                </div>
+            </footer>
+            <!--JavaScript at end of body for optimized loading-->
+            <script src="numeral.min.js"></script>
+            <script type="text/javascript" src="js/materialize.min.js"></script>
+            <script src="datafinit.js"></script>
+            <script src="./assets/js/app.js"></script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvzqOxwwSoaC4BqoQL3nx86kAKE9_KJkI&callback=initMap"
+                type="text/javascript"></script>
+            <script src="./assets/js/gmaps.js"></script>
 </body>
-
 </html>
+
