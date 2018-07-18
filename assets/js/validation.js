@@ -22,13 +22,13 @@ $(function() {
 
 
     function check_city() {
-        var cityPattern = /^[a-zA-Z0-9_ ]*$/;
+        var cityPattern =  /^[a-zA-Z\s]*$/;  
         var cities = $("#city").val();
         if(cityPattern.test(cities) && cities !== '') {
             $("#city_error_message").hide();
             $("#city").css("border-bottom", "2px solid #34F458");
         } else {
-            $("#city_error_message").html("Fill with characters, please.");
+            $("#city_error_message").html("Fill with letters, please.");
             $("#city_error_message").show();
             $("#city").css("border-bottom", "2px solid #F90A0A");
             error_city = true;
@@ -50,13 +50,13 @@ $(function() {
     }
 
     function check_rent() {
-        var rentPattern =  /^[a-zA-Z0-9_ ]*$/;
+        var rentPattern = /^[0-9+]*$/
         var rents = $("#monthlyRent").val(); 
         if (rentPattern.test(rents) && rents !== '') {
             $("#rent_error_message").hide();
             $("#monthlyRent").css("border-bottom", "2px solid #34F458");
         } else {
-            $('#rent_error_message').html("Rent must contain numbers.");
+            $('#rent_error_message').html("Numbers only, please.");
             $("#rent_error_message").show();
             $("#monthlyRent").css("border-bottom", "2px solid #F90A0A");
             error_zip = true;

@@ -31,7 +31,6 @@ $("#btnGetAdd").on("click", function () {
         var results = response.records;
         rent = rent * 12;
         //var arr = [];
-        
         //clearing out the table body
         $("tbody").empty();
         for (var i = 0; i < results.length; i++) {
@@ -42,7 +41,6 @@ $("#btnGetAdd").on("click", function () {
             //variables for dynamically creating the table rows 
             var tBody = $("tbody");
             var tRow = $("<tr>");
-            
             // //var strAddress = results[i].address + results[i].city + results[i].province + results[i].postalCode;
             // // var strAddress = "46540 fremont blvd fremont,ca 94538";
             // // var url = "";
@@ -51,13 +49,12 @@ $("#btnGetAdd").on("click", function () {
             // //"<href=codeAddress('" + strAddress + "')>" + results[i].mlsNumber + "</a>";
             // function goToURL(url){
             //     window.open("google.com");
-                
             //     }
             // console.log(listing);
             var listing = $("<td>").html(results[i].mlsNumber);
             var prop = $("<td>").html(results[i].address + ", " + results[i].city + ", " + results[i].province + " " + results[i].postalCode);
-            var taxes = $("<td>").html("$" + (results[i].propertyTaxes[0].amount).toFixed(2));
-            var purchPrice = $("<td>").html("$" + (results[i].prices[0].amountMax).toFixed(2));
+            var taxes = $("<td>").html(("$" + (results[i].propertyTaxes[0].amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })));
+            var purchPrice = $("<td>").html("$" + (results[i].prices[0].amountMax).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
             //calculating return
             var roi = $("<td>").html(Math.round((rent - results[i].propertyTaxes[0].amount - propInsurance - propMgmt) / (results[i].prices[0].amountMax) * 100) + "%");
             //calculating average return in that city/ zipcode
@@ -84,6 +81,6 @@ $("#btnGetAdd").on("click", function () {
         console.log(sumROI);
         var sumPurchase = sumPurchase / 10;
         $(".average").empty();
-        $(".average").append("$" + (sumPurchase.toFixed(2)));
+        $(".average").append("$" + (sumPurchase.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })));
     });
 });
